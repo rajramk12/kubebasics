@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-dep
+  labels:
+    tier: front-end
+    app: myapp-dep
+spec:
+  selector:
+    matchLabels:
+      app: myapp-pod
+  replicas: 6
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: myapp-pod
+    spec:
+      containers:
+        - name: trials
+          image: rajramk12/trials:v1
